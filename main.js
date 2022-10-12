@@ -1,16 +1,16 @@
-import { onGetTasks, saveTask, deleteTask, getTask, updateTask } from './db.js';
+import { onGetTasks, saveTask, deleteTask, getTask, updateTask } from "./db.js";
 
-const taskForm = document.getElementById('task-form');
-const tasksContainer = document.getElementById('tasks-container');
+const taskForm = document.getElementById("task-form");
+const tasksContainer = document.getElementById("tasks-container");
 
 let editStatus = false;
-let id = '';
+let id = "";
 
-window.addEventListener('DOMContentLoaded', async e => {
-  onGetTasks(querySnapshot => {
-    tasksContainer.innerHTML = '';
+window.addEventListener("DOMContentLoaded", async (e) => {
+  onGetTasks((querySnapshot) => {
+    tasksContainer.innerHTML = "";
 
-    querySnapshot.forEach(doc => {
+    querySnapshot.forEach((doc) => {
       const task = doc.data();
 
       tasksContainer.innerHTML += `
@@ -28,9 +28,9 @@ window.addEventListener('DOMContentLoaded', async e => {
   </div>`;
     });
 
-    const btnsDelete = tasksContainer.querySelectorAll('.btn-delete');
-    btnsDelete.forEach(btn =>
-      btn.addEventListener('click', async ({ target: { dataset } }) => {
+    const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
+    btnsDelete.forEach((btn) =>
+      btn.addEventListener("click", async ({ target: { dataset } }) => {
         try {
           await deleteTask(dataset.id);
         } catch (error) {
@@ -39,18 +39,18 @@ window.addEventListener('DOMContentLoaded', async e => {
       })
     );
 
-    const btnsEdit = tasksContainer.querySelectorAll('.btn-edit');
-    btnsEdit.forEach(btn => {
-      btn.addEventListener('click', async e => {
+    const btnsEdit = tasksContainer.querySelectorAll(".btn-edit");
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener("click", async (e) => {
         try {
           const doc = await getTask(e.target.dataset.id);
           const task = doc.data();
-          taskForm['task-title'].value = task.title;
-          taskForm['task-description'].value = task.description;
+          taskForm["task-title"].value = task.title;
+          taskForm["task-description"].value = task.description;
 
           editStatus = true;
           id = doc.id;
-          taskForm['btn-task-form'].innerText = 'Update';
+          taskForm["btn-task-form"].innerText = "Update";
         } catch (error) {
           console.log(error);
         }
@@ -59,11 +59,11 @@ window.addEventListener('DOMContentLoaded', async e => {
   });
 });
 
-taskForm.addEventListener('submit', async e => {
+taskForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const title = taskForm['task-title'];
-  const description = taskForm['task-description'];
+  const title = taskForm["task-title"];
+  const description = taskForm["task-description"];
 
   try {
     if (!editStatus) {
@@ -75,8 +75,8 @@ taskForm.addEventListener('submit', async e => {
       });
 
       editStatus = false;
-      id = '';
-      taskForm['btn-task-form'].innerText = 'Save';
+      id = "";
+      taskForm["btn-task-form"].innerText = "Save";
     }
 
     taskForm.reset();
