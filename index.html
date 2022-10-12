@@ -29,14 +29,35 @@
                   placeholder="Introduce la placa"
                   autofocus
                 />
+                <label for="title">Selecione el tipo de placa:</label>
+                <select
+                  id="placa-type"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  <option selected>Abra el menu de seleccion</option>
+                  <option value="Autobús privado">Autobús privado- I</option>
+                  <option value="Automóvil Turístico">
+                    Automóvil Turístico- C
+                  </option>
+                  <option value="Autobús Público Urbano">
+                    Autobús Público Urbano -D
+                  </option>
+                  <option value="Remolque">Remolque- F</option>
+                  <option value="Jeep">Jeep- G</option>
+                  <option value="Camion">Camion- F</option>
+                </select>
 
-                <label for="description">Description:</label>
-                <textarea
+                <label for="description">Oposicion:</label>
+                <select
+                  class="form-select"
                   id="task-description"
-                  rows="3"
-                  class="form-control mb-3"
-                  placeholder="Task Description"
-                ></textarea>
+                  aria-label="Default select example"
+                >
+                  <option selected>Abra el menu de seleccion</option>
+                  <option value="No tiene una oposicion">Si</option>
+                  <option value="Tiene una oposicion">No</option>
+                </select>
 
                 <button class="btn btn-primary" id="btn-task-form">Save</button>
               </form>

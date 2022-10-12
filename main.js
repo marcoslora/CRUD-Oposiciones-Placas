@@ -2,7 +2,6 @@ import { onGetTasks, saveTask, deleteTask, getTask, updateTask } from "./db.js";
 
 const taskForm = document.getElementById("task-form");
 const tasksContainer = document.getElementById("tasks-container");
-
 let editStatus = false;
 let id = "";
 
@@ -17,6 +16,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
       <div class="card card-body mt-2 border-primary">
     <h3 class="h5">${task.title}</h3>
     <p>${task.description}</p>
+    <p>${task.placa}</p>
     <div>
       <button class="btn btn-primary btn-delete" data-id="${doc.id}">
         🗑 Delete
@@ -64,14 +64,16 @@ taskForm.addEventListener("submit", async (e) => {
 
   const title = taskForm["task-title"];
   const description = taskForm["task-description"];
+  const placaTypes = taskForm["placa-type"];
 
   try {
     if (!editStatus) {
-      await saveTask(title.value, description.value);
+      await saveTask(title.value, description.value, placaTypes.value);
     } else {
       await updateTask(id, {
         title: title.value,
         description: description.value,
+        placaTypes: placaTypes.value,
       });
 
       editStatus = false;

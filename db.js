@@ -27,8 +27,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
-export const saveTask = (title, description) =>
-  addDoc(collection(db, "tasks"), { title, description });
+export const saveTask = (title, description, placa) =>
+  addDoc(collection(db, "tasks"), { title, description, placa });
 
 export const onGetTasks = (callback) =>
   onSnapshot(collection(db, "tasks"), callback);
