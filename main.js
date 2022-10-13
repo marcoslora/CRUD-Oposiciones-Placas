@@ -56,6 +56,25 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         }
       });
     });
+    const btnsSearch = tasksContainer.querySelectorAll(".btn-edit");
+    btnsSearch.forEach((btn) => {
+      btn.addEventListener("search-doc", async (e) => {
+        try {
+          const doc = await getTask(e.target.dataset.id);
+          const task = doc.data();
+          if (taskForm["task-title"].value === task.title) {
+            console.log("Lo logre");
+          }
+          //taskForm["task-description"].value = task.description;
+
+          editStatus = true;
+          id = doc.id;
+          taskForm["btn-task-search"].innerText = "Buscar";
+        } catch (error) {
+          console.log(error);
+        }
+      });
+    });
   });
 });
 
