@@ -1,3 +1,9 @@
 body {
   background: rgb(112, 105, 105);
 }
+#btn-task-form {
+  margin-top: 10px;
+}
+#label-oposicion {
+  margin-top: 10px;
+}
