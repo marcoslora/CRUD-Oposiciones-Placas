@@ -75,7 +75,7 @@ taskForm.addEventListener("submit", async (e) => {
         description: description.value,
         placaTypes: placaTypes.value,
       });
-
+      console.log("Guardado");
       editStatus = false;
       id = "";
       taskForm["btn-task-form"].innerText = "Save";

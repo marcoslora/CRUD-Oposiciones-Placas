@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Consulta de placas</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="https://kit.fontawesome.com/3ffd77e5f2.js" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       href="https://bootswatch.com/5/yeti/bootstrap.min.css"
@@ -41,7 +42,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Anadir placas</a>
+                <a class="nav-link" href="./index.html">Anadir placas</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Busqueda de placas</a>
@@ -65,9 +66,71 @@
     </nav>
     <div class="container p-4">
       <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="h4">Editar placas</h1>
+              <form id="task-form">
+                <label for="title">Numero de la placa:</label>
+                <input
+                  type="text"
+                  id="task-title"
+                  class="form-control mb-3"
+                  class="My First Title"
+                  placeholder="Introduce la placa"
+                  autofocus
+                />
+                <label for="title">Selecione el tipo de placa:</label>
+                <select
+                  id="placa-type"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  <option selected>Abra el menu de seleccion</option>
+                  <option value="Autobús privado">Autobús privado- I</option>
+                  <option value="Automóvil Turístico">
+                    Automóvil Turístico- C
+                  </option>
+                  <option value="Autobús Público Urbano">
+                    Autobús Público Urbano -D
+                  </option>
+                  <option value="Remolque">Remolque- F</option>
+                  <option value="Jeep">Jeep- G</option>
+                  <option value="Camion">Camion- F</option>
+                </select>
+
+                <label for="description" id="label-oposicion">Oposicion:</label>
+                <select
+                  class="form-select"
+                  id="task-description"
+                  aria-label="Default select example"
+                >
+                  <option selected>Abra el menu de seleccion</option>
+                  <option value="No tiene una oposicion">Si</option>
+                  <option value="Tiene una oposicion">No</option>
+                </select>
+                <button class="btn btn-primary" id="btn-task-form">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container p-4">
+      <div class="row">
         <div class="col-md-6" id="tasks-container"></div>
       </div>
     </div>
+    <footer class="white-section" id="footer">
+      <div class="container-fluid">
+        <a href="https://www.instagram.com/marcoslorae/"><i class="social-icon fa-brands fa-instagram"></i></a>
+        <i class="social-icon fa-brands fa-facebook"></i>
+        <i class="social-icon fa-brands fa-github"></i>
+        <i class="social-icon fa-brands fa-twitter"></i>
+        <i class="social-icon fa-solid fa-envelope"></i>
+        <p id="footer-letter">© Copyright 2022 Marcos Lora</p>
+      </div>
+    </footer>
     <script src="./main.js" type="module"></script>
     <!-- JavaScript Bundle with Popper -->
     <script

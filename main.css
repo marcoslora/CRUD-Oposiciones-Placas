@@ -1,9 +1,21 @@
 body {
-  background: rgb(112, 105, 105);
+  background: rgb(243, 237, 237);
 }
 #btn-task-form {
   margin-top: 10px;
 }
 #label-oposicion {
   margin-top: 10px;
+}
+@media only screen and (min-width: 1200px) {
+  #card-info-container {
+    padding-left: 30%;
+  }
+}
+#footer-letter {
+  color: aliceblue;
+}
+.social-icon {
+  color: aliceblue;
+  margin: 5px;
 }
